@@ -4,7 +4,16 @@ var questionEl = document.getElementById("question");
 var answer1El = document.getElementById("answer1");
 var answer2El = document.getElementById("answer2");
 var answer3El = document.getElementById("answer3");
-var button= document.getElementById("generate");
+var answer4El = document.getElementById("answer4");
+
+var startQuizBtn = document.getElementById("generate");
+
+startQuizBtn.onclick = startQuiz;
+
+function startQuiz() {
+    document.getElementById("homepage").style.display = "none";
+}
+
 
 var questions = [
   {
@@ -43,7 +52,13 @@ function updateQuestion() {
   answer1El.textContent = currentQuestion.answers[0];
   answer2El.textContent = currentQuestion.answers[1];
   answer3El.textContent = currentQuestion.answers[2];
-  answer4El.textContent=currentQuestion.answers[3]
+  
+  answer4El.textContent= "";
+  if (currentQuestion.answers.length >3) {
+        answer4El.textContent=currentQuestion.answers[3];
+  } else {
+    answer4El.style.display = "none" ;
+  }
 }
 
 function checkAnswer(clickedAnswer) {
@@ -56,25 +71,13 @@ function checkAnswer(clickedAnswer) {
   if (currentQuestion.correctAnswer === clickedAnswer) {
     console.log('correct answer');
   }
-  else {
+  else {    
     console.log('wrong answer');
   }
 
   currentQuestionIndex++;
   updateQuestion();
 }
-
-answer1El.addEventListener("click", function () {
-  checkAnswer(0);
-});
-
-answer2El.addEventListener("click", function () {
-  checkAnswer(1);
-});
-
-answer3El.addEventListener("click", function () {
-  checkAnswer(2);
-});
 
 updateQuestion();
 
