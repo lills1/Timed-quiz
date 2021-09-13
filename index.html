@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <div id="homepage">
     <h1 class=headers> Test your coding knowledge!</h1>
     <h2 class=headers> There are a couple of things to remember..</h2>
     <ul class="rules">
@@ -17,35 +18,15 @@
     <p class="above-button"> Click when you are ready to begin!</p>
 
     <button id="generate" class="btn">click here to begin</button>
+</div>
  <main>
-     <p>what does HTML stand for?</p>
-     <ol id="answer1">
-         <li id=>Hypertext markup language</li>
-         <li>hypertype market language</li>
-         <li>hypertext markup linguistics</li>
+     <p id="question">what does HTML stand for?</p>
+     <ol id="answer1_block">
+         <li id="answer1" onclick="checkAnswer(0);">Hypertext markup language</li>
+         <li id="answer2" onclick="checkAnswer(1);">hypertype market language</li>
+         <li id="answer3" onclick="checkAnswer(2);">hypertext markup linguistics</li>
+         <li id="answer4" onclick="checkAnswer(3);"></li>
      </ol>
-
-     <p>what is the purpose of a function in javascript?</p>
-     <ol id="answer2">
-         <li>it stores multiple values in a single variable</li>
-         <li>it allows you to define a block of code to execute as many times as wanted</li>
-         <li>They check specific conditions</li>
-     </ol>
-
-     <p>When targetting a class in css, which of the following character is used:</p>
-     <ol id="answer">
-         <li>#</li>
-         <li> "" </li>
-         <li>.</li>
-     </ol>
-
-    <p> In Javascript, which of the following out of the array would be conisdered [2]: var animals =[ 'turtles', 'cats', 'owl', 'donkey']</p>
-    <ol id="answer4 ">
-        <li>turtles</li>
-        <li>cats</li>
-        <li>owl</li>
-        <li>donkey</li>
-    </ol>
  </main>
 
 <div class="timer-right">
