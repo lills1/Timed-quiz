@@ -8,10 +8,8 @@ body{
     font-weight:500;
 }
 
-.rules{
-    display: flex;
-    /* justify-content:space-around; */
-    /* border-style: solid; */
+.rules{ 
+     
     display:block;
     text-align: center;
     list-style-position: inside;
@@ -40,11 +38,41 @@ body{
   }
 
   .timer-right{
-      
+      transform-origin: left,top;
+        
   }
 
-  #answer1_block{
-      cursor:pointer
+  main{
+      cursor:pointer;
+      text-align:center;
+      list-style-position: inside;
+      border-style: solid;
 
   }
+
+  #answer1:hover {
+      color: darkblue;
+      font-weight:500;
+  }
+
+  #answer2:hover {
+    color: darkblue;
+    font-weight:500;
+    
+}
+
+#answer3:hover {
+    color: darkblue;
+    font-weight:500;
+}
+
+#answer4:hover {
+    color: darkblue;
+    font-weight:500;
+}
+
+.hidden{
+    display:none;
+}
+
 
