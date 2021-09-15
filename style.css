@@ -84,4 +84,9 @@ body{
     border:2px black solid; 
 } */
 
-
+#endScreen{
+    display:none;
+}
+#ScoreKeeper{
+    display:none;
+}
