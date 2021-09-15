@@ -116,7 +116,7 @@ function checkAnswer(clickedAnswer) {
   setTimeout(function(){ 
     currentQuestionIndex++;
     if(true){
-      //well you'll need to figure out what the condition here is.
+      // figure out what the condition here is.
       console.log("running updateQuestion")
       updateQuestion();
     } else {
@@ -129,11 +129,10 @@ function checkAnswer(clickedAnswer) {
 }
 
 function finalScore(){
+  //displays the final score, the form to submit name and hides questions
   document.getElementById("endScreen").style.display = "block";
   document.getElementById("ScoreKeeper").style.display = "block";
   document.getElementById("hidden-question").style.display = "none";
-
-FinalScoreEl.innerHTML= "Your final score is" + gameScore;
-
-  //3. show some form to enter name.
+//updates the final score
+  FinalScoreEl.innerHTML= "Your final score is" + gameScore;
 }
