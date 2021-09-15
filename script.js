@@ -1,4 +1,3 @@
-console.log("hello")
 
 var questionEl = document.getElementById("question");
 var answer1El = document.getElementById("answer1");
@@ -12,7 +11,7 @@ var quizTimer, timerCount;
 startQuizBtn.onclick = startQuiz;
 
 
-
+//array that contains the questions, answers and correct answer index
 var questions = [
   {
     question: "what does HTML stand for?",
@@ -39,6 +38,8 @@ var questions = [
 var currentQuestionIndex = 0;
 
 updateQuestion();
+
+//when start button is clicked, the homepage and start button is hidden, and the questions and timer is displayed (and the timer starts)
 function startQuiz() {
     document.getElementById("homepage").style.display = "none";
     document.getElementById("generate").style.display = "none"; 
@@ -47,7 +48,7 @@ function startQuiz() {
     timer();
 }
 
-
+//timer function
 function timer (){
   //case matters
     timerCount=90;
@@ -66,6 +67,7 @@ function timer (){
  }, 1000)
   }
 
+//ensures questions are updated 
 
 function updateQuestion() {
   var currentQuestion = questions[currentQuestionIndex];
@@ -87,7 +89,7 @@ function updateQuestion() {
     answer4El.style.display = "none" ;
   }
 }
-
+//checks if selected question is right or wrong
 function checkAnswer(clickedAnswer) {
   var currentQuestion = questions[currentQuestionIndex];
 
@@ -96,13 +98,15 @@ function checkAnswer(clickedAnswer) {
   }
   
   if (currentQuestion.correctAnswer === clickedAnswer) {
+    //sets background to green if right
     document.body.style.backgroundColor = "green";
   }
   else {   
-    
+    //if wrong, deducts 10 seconds and sets background to red
     timerCount-=10;
     document.body.style.backgroundColor = "red";
   }
+  //setTimeout displays background for 1.1 seconds and resets background to white
   setTimeout(function(){ 
     currentQuestionIndex++;
   updateQuestion();
@@ -111,6 +115,4 @@ function checkAnswer(clickedAnswer) {
 
 }
 
-
-//to do: add in timer function, add in javascript to comment on if you get right/wrong answer
  
