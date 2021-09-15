@@ -71,7 +71,8 @@ function updateQuestion() {
     document.write("quiz done");
     return;
   }
-setTimeout((clickedAnswer, 1000));  
+// setTimeout((clickedAnswer, 1000));
+
   questionEl.innerHTML = currentQuestion.question; 
   answer1El.innerHTML = currentQuestion.answers[0];
   answer2El.innerHTML = currentQuestion.answers[1];
@@ -100,10 +101,14 @@ function checkAnswer(clickedAnswer) {
     timerCount-=10;
     document.body.style.backgroundColor = "red";
   }
-
-  currentQuestionIndex++;
+  setTimeout(function(){ 
+    currentQuestionIndex++;
   updateQuestion();
+  document.body.style.backgroundColor = "white";
+  }, 1100);
+
 }
 
 
 //to do: add in timer function, add in javascript to comment on if you get right/wrong answer
+ 
