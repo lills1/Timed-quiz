@@ -48,8 +48,8 @@ function startQuiz() {
     document.getElementById("generate").style.display = "none"; 
     document.getElementById("hidden-question").style.display = "block";
     document.getElementById("timer").style.display = "block";
-    document.getElementById("ScoreKeeper").style.display = "block";
-    document.getElementById("endScreen").style.display = "block";
+    document.getElementById("endScreen").style.display = "none";
+    document.getElementById("ScoreKeeper").style.display = "none";
     timer();
 }
 
@@ -115,15 +115,25 @@ function checkAnswer(clickedAnswer) {
   //setTimeout displays background for 1.1 seconds and resets background to white
   setTimeout(function(){ 
     currentQuestionIndex++;
-  updateQuestion();
-  document.body.style.backgroundColor = "white";
+    if(true){
+      //well you'll need to figure out what the condition here is.
+      console.log("running updateQuestion")
+      updateQuestion();
+    } else {
+      console.log("running finalScore")
+      finalScore();
+    }
+    document.body.style.backgroundColor = "white";
   }, 1100);
 
 }
 
-
 function finalScore(){
-  
+  document.getElementById("endScreen").style.display = "block";
+  document.getElementById("ScoreKeeper").style.display = "block";
+  document.getElementById("hidden-question").style.display = "none";
 
+FinalScoreEl.innerHTML= "Your final score is" + gameScore;
+
+  //3. show some form to enter name.
 }
- 
