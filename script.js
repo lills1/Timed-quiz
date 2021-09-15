@@ -54,13 +54,16 @@ function timer (){
     quizTimer = setInterval(function() { 
       timerCount--;
       console.log(timerCount);
-      timerEl.innerHTML=timerCount + "seconds remaining";
+      timerEl.innerHTML=timerCount + " seconds remaining";
       if (timerCount===1) {
-        timerEl.innerHTML = timerCount + "second remaining";
+        timerEl.innerHTML = timerCount + " second remaining";
     } else if (timerCount<=0){
-      timerEl.innerHTML = timerCount + "You've run out of time!";
-    }
-  }, 1000)
+      timerEl.innerHTML = "You've run out of time!";
+    } if(timerCount === 0) {
+      clearInterval(quizTimer);
+
+  }
+ }, 1000)
   }
 
 
@@ -71,7 +74,6 @@ function updateQuestion() {
     document.write("quiz done");
     return;
   }
-// setTimeout((clickedAnswer, 1000));
 
   questionEl.innerHTML = currentQuestion.question; 
   answer1El.innerHTML = currentQuestion.answers[0];
