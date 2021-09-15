@@ -48,6 +48,7 @@ function startQuiz() {
     document.getElementById("hidden-question").style.display = "block";
     document.getElementById("timer").style.display = "block";
     document.getElementById("ScoreKeeper").style.display = "block";
+    document.getElementById("endScreen").style.display = "block";
     timer();
 }
 
