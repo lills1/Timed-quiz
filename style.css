@@ -38,7 +38,10 @@ body{
   }
 
   .timer-right{
-      transform-origin: left,top;
+      transform-origin: top;
+      display:flex;
+      justify-content:space-evenly;
+      border-style:solid;
         
   }
 
@@ -72,6 +75,10 @@ body{
 }
 
 .hidden{
+    display:none;
+}
+
+.timer-right{
     display:none;
 }
 
