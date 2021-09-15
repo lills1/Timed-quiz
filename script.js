@@ -5,11 +5,9 @@ var answer1El = document.getElementById("answer1");
 var answer2El = document.getElementById("answer2");
 var answer3El = document.getElementById("answer3");
 var answer4El = document.getElementById("answer4");
-var timerEl= document.getElementsByClassName("timer-right");
+var timerEl= document.getElementById("timer");
 var startQuizBtn = document.getElementById("generate");
-var timerEl= document.getElementsByClassName("timer-right");
-
-var timerCount;
+var quizTimer, timerCount;
 startQuizBtn.onclick = startQuiz;
 
 
@@ -39,13 +37,30 @@ var questions = [
 
 var currentQuestionIndex = 0;
 
+updateQuestion();
 function startQuiz() {
     document.getElementById("homepage").style.display = "none";
     document.getElementById("generate").style.display = "none"; 
     document.getElementById("hidden-question").style.display = "block";
-    document.getElementById("timer-hidden").style.display = "block";
-    timerCount=90;
+    document.getElementById("timer").style.display = "block";
+    timer();
 }
+
+
+function timer (){
+  //case matters, 
+    timerCount=90;
+    quizTimer = setInterval(function() { 
+      timerCount--;
+      console.log(timerCount);
+      timerEl.innerHTML=timerCount + "seconds remaining";
+      if (timerCount===1) {
+        timerEl.innerHTML = timerCount + "second remaining";
+    } else if (timerCount===0){
+      timerEl.innerHTML = timerCount + "You've run out of time!";
+    }
+  }, 1000)
+  }
 
  
 // document.getElementByid("generate").addEventListener("click", function() {
@@ -62,20 +77,6 @@ function startQuiz() {
 // });
 
 
-function timer(){
-  timerInterval=SetInterval(function() {
-    timerCount--;
-    console.log(timerCount);
-    timerEl.textContent=timerCount + "seconds remaining";
-    if (timerCount===1) {
-      timerEl.textContent = timerCount + "second remaining";
-  } else if (timerCount===0){
-    clearInterval(timer);
-    timerEl.textContent = timerCount + "You've run out of time!";
-  }
-}, 1000)
-}
-updateQuestion();
 
 
 
@@ -87,14 +88,14 @@ function updateQuestion() {
     return;
   }
 
-  questionEl.textContent = currentQuestion.question;
-  answer1El.textContent = currentQuestion.answers[0];
-  answer2El.textContent = currentQuestion.answers[1];
-  answer3El.textContent = currentQuestion.answers[2];
+  questionEl.innerHTML = currentQuestion.question;
+  answer1El.innerHTML = currentQuestion.answers[0];
+  answer2El.innerHTMLt = currentQuestion.answers[1];
+  answer3El.innerHTML = currentQuestion.answers[2];
   
-  answer4El.textContent= "";
+  answer4El.innerHTML= "";
   if (currentQuestion.answers.length >3) {
-        answer4El.textContent=currentQuestion.answers[3];
+        answer4El.innerHTML=currentQuestion.answers[3];
   } else {
     answer4El.style.display = "none" ;
   }
