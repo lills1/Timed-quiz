@@ -7,6 +7,8 @@ var answer4El = document.getElementById("answer4");
 var timerEl= document.getElementById("timer");
 var HomepageEl =document.getElementsByTagName ("body");
 var startQuizBtn = document.getElementById("generate");
+var ScoreKeeperEl = document.getElementById("ScoreKeeper");
+var gameScore=0;
 var quizTimer, timerCount;
 startQuizBtn.onclick = startQuiz;
 
@@ -45,6 +47,7 @@ function startQuiz() {
     document.getElementById("generate").style.display = "none"; 
     document.getElementById("hidden-question").style.display = "block";
     document.getElementById("timer").style.display = "block";
+    document.getElementById("ScoreKeeper").style.display = "block";
     timer();
 }
 
@@ -99,6 +102,7 @@ function checkAnswer(clickedAnswer) {
   
   if (currentQuestion.correctAnswer === clickedAnswer) {
     //sets background to green if right
+    gameScore=gameScore +1;
     document.body.style.backgroundColor = "green";
   }
   else {   
