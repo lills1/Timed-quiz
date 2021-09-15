@@ -8,6 +8,7 @@ var timerEl= document.getElementById("timer");
 var HomepageEl =document.getElementsByTagName ("body");
 var startQuizBtn = document.getElementById("generate");
 var ScoreKeeperEl = document.getElementById("ScoreKeeper");
+var FinalScoreEl=document.getElementById("FinalScore");
 var gameScore=0;
 var quizTimer, timerCount;
 startQuizBtn.onclick = startQuiz;
@@ -120,4 +121,9 @@ function checkAnswer(clickedAnswer) {
 
 }
 
+
+function finalScore(){
+  
+
+}
  
