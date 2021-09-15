@@ -7,13 +7,44 @@ var answer3El = document.getElementById("answer3");
 var answer4El = document.getElementById("answer4");
 var timerEl= document.getElementsByClassName("timer-right");
 var startQuizBtn = document.getElementById("generate");
+var timerEl= document.getElementsByClassName("timer-right");
 
+var timerCount;
 startQuizBtn.onclick = startQuiz;
+
+
+
+var questions = [
+  {
+    question: "what does HTML stand for?",
+    answers: ["Hypertext markup language", "Hypertype market language", "Hypertext markup linguistics"],
+    correctAnswer: 0,
+  },
+  {
+    question: "What is the purpose of a function in javascript?",
+    answers: ["it stores multiple values in a single variable", "it allows you to define a block of code to execute as many times as wanted", "They check specific conditions"],
+    correctAnswer: 1,
+  },
+  {
+    question: "When targetting a class in css, which of the following character is used:",
+    answers: ["#", "", "."],
+    correctAnswer: 2,
+  },
+  {
+    question: "In Javascript, which of the following out of the array would be conisdered [2]: var animals =[ 'turtles', 'cats', 'owl', 'donkey']",
+    answers: ["turtles", "cats", "owl", "donkey"],
+    correctAnswer: 3, 
+  }
+];
+
+var currentQuestionIndex = 0;
 
 function startQuiz() {
     document.getElementById("homepage").style.display = "none";
     document.getElementById("generate").style.display = "none"; 
     document.getElementById("hidden-question").style.display = "block";
+    document.getElementById("timer-hidden").style.display = "block";
+    timerCount=90;
 }
 
  
@@ -29,20 +60,24 @@ function startQuiz() {
 //   timeleft -= 1;
 // }, 90000);
 // });
-// function timer(){
-//   var timerInterval=SetInterval(function() {
-//     timerCount--;
-//     console.log(timerCount);
-//     timerEl.textContent=timerCount + "seconds remaining";
-//     if (timerCount===1) {
-//       timerEl.textContent = timerCount + "second remaining";
-//   } else if (timerCount===0){
-//     clearInterval(timer);
-//     timerEl.textContent = timerCount + "You've run out of time!";
-//   }
-// }, 1000)
-// }
-// updateQuestion();
+
+
+function timer(){
+  timerInterval=SetInterval(function() {
+    timerCount--;
+    console.log(timerCount);
+    timerEl.textContent=timerCount + "seconds remaining";
+    if (timerCount===1) {
+      timerEl.textContent = timerCount + "second remaining";
+  } else if (timerCount===0){
+    clearInterval(timer);
+    timerEl.textContent = timerCount + "You've run out of time!";
+  }
+}, 1000)
+}
+updateQuestion();
+
+
 
 function updateQuestion() {
   var currentQuestion = questions[currentQuestionIndex];
@@ -83,30 +118,5 @@ function checkAnswer(clickedAnswer) {
   updateQuestion();
 }
 
-
-var questions = [
-  {
-    question: "what does HTML stand for?",
-    answers: ["Hypertext markup language", "Hypertype market language", "Hypertext markup linguistics"],
-    correctAnswer: 0,
-  },
-  {
-    question: "What is the purpose of a function in javascript?",
-    answers: ["it stores multiple values in a single variable", "it allows you to define a block of code to execute as many times as wanted", "They check specific conditions"],
-    correctAnswer: 1,
-  },
-  {
-    question: "When targetting a class in css, which of the following character is used:",
-    answers: ["#", "", "."],
-    correctAnswer: 2,
-  },
-  {
-    question: "In Javascript, which of the following out of the array would be conisdered [2]: var animals =[ 'turtles', 'cats', 'owl', 'donkey']",
-    answers: ["turtles", "cats", "owl", "donkey"],
-    correctAnswer: 3, 
-  }
-];
-
-var currentQuestionIndex = 0;
 
 //to do: add in timer function, add in javascript to comment on if you get right/wrong answer
