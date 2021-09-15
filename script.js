@@ -6,6 +6,7 @@ var answer2El = document.getElementById("answer2");
 var answer3El = document.getElementById("answer3");
 var answer4El = document.getElementById("answer4");
 var timerEl= document.getElementById("timer");
+var HomepageEl =document.getElementsByTagName ("body");
 var startQuizBtn = document.getElementById("generate");
 var quizTimer, timerCount;
 startQuizBtn.onclick = startQuiz;
@@ -48,7 +49,7 @@ function startQuiz() {
 
 
 function timer (){
-  //case matters, 
+  //case matters
     timerCount=90;
     quizTimer = setInterval(function() { 
       timerCount--;
@@ -56,28 +57,11 @@ function timer (){
       timerEl.innerHTML=timerCount + "seconds remaining";
       if (timerCount===1) {
         timerEl.innerHTML = timerCount + "second remaining";
-    } else if (timerCount===0){
+    } else if (timerCount<=0){
       timerEl.innerHTML = timerCount + "You've run out of time!";
     }
   }, 1000)
   }
-
- 
-// document.getElementByid("generate").addEventListener("click", function() {
-// var timeleft = 90;
-// var downloadTimer = setInterval(function(){
-//   if(timeleft <= 0){
-//     clearInterval(downloadTimer);
-//     document.getElementById("timer-right").textContent = "Finished";
-//   } else {
-//     document.getElementById("timer-right").textContent = timeleft + " seconds remaining";
-//   }
-//   timeleft -= 1;
-// }, 90000);
-// });
-
-
-
 
 
 function updateQuestion() {
@@ -87,10 +71,10 @@ function updateQuestion() {
     document.write("quiz done");
     return;
   }
-
-  questionEl.innerHTML = currentQuestion.question;
+setTimeout((clickedAnswer, 1000));  
+  questionEl.innerHTML = currentQuestion.question; 
   answer1El.innerHTML = currentQuestion.answers[0];
-  answer2El.innerHTMLt = currentQuestion.answers[1];
+  answer2El.innerHTML = currentQuestion.answers[1];
   answer3El.innerHTML = currentQuestion.answers[2];
   
   answer4El.innerHTML= "";
@@ -109,10 +93,12 @@ function checkAnswer(clickedAnswer) {
   }
   
   if (currentQuestion.correctAnswer === clickedAnswer) {
-    console.log("correct answer!");
+    document.body.style.backgroundColor = "green";
   }
-  else {    
-    console.log("wrong answer");
+  else {   
+    
+    timerCount-=10;
+    document.body.style.backgroundColor = "red";
   }
 
   currentQuestionIndex++;
