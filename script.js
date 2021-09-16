@@ -9,10 +9,12 @@ var HomepageEl =document.getElementsByTagName ("body");
 var startQuizBtn = document.getElementById("generate");
 var ScoreKeeperEl = document.getElementById("ScoreKeeper");
 var FinalScoreEl=document.getElementById("FinalScore");
+var currentName=document.getElementById("fname")
+console.log("currentname.value")
 var HighScorePage = document.getElementById("High-score-page");
 document.getElementById("myBtn").onclick = function(e) {
   e.preventDefault();
-var currentName=document.getElementById("fname").value;
+currentName=document.getElementById("fname").value;
 console.log(currentName)
   FinalDisplay()};
 var gameScore=0;
@@ -148,6 +150,10 @@ function finalScore(){
   FinalScoreEl.innerHTML= "Your final score is" + gameScore ;
 }
 
+window.localStorage.setItem('user', JSON.stringify(currentName));
+
+window.localStorage.setItem('score', JSON.stringify(gameScore));
+
 function FinalDisplay (){
   console.log("test");
   document.getElementById("endScreen").style.display = "none";
@@ -156,6 +162,7 @@ function FinalDisplay (){
   HighScorePage= JSON.parse(window.localStorage.getItem('gameScore'));
   HighScorePage= JSON.parse(window.localStorage.getItem('currentName'));
   document.getElementById("High-score-page").innerHTML = gameScore;
-  document.getElementById("fname").innerHTML = currentName;
+  document.getElementById("High-score-page").innerHTML = currentName;
+
 }
 
