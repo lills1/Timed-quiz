@@ -66,7 +66,7 @@ function startQuiz() {
 //timer function
 function timer (){
   //case matters
-    timerCount=5;
+    timerCount=90;
     quizTimer = setInterval(function() { 
       timerCount--;
       console.log(timerCount);
@@ -77,7 +77,7 @@ function timer (){
       timerEl.innerHTML = "You've run out of time!";
     } if(timerCount === 0) {
       clearInterval(quizTimer);
-      
+
   }
  }, 1000)
   }
