@@ -135,7 +135,7 @@ function checkAnswer(clickedAnswer) {
       finalScore();
       clearInterval(quizTimer);
     }
-    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundColor = "lavenderblush";
   }, 1100);
 
 }
@@ -147,7 +147,7 @@ function finalScore(){
   document.getElementById("hidden-question").style.display = "none";
   document.getElementById("timer").style.display = "none";
 //updates the final score
-  FinalScoreEl.innerHTML= "Your final score is" + gameScore ;
+  FinalScoreEl.innerHTML= " Your final score is " + gameScore ;
 }
 
 window.localStorage.setItem('user', JSON.stringify(currentName));
@@ -155,6 +155,7 @@ window.localStorage.setItem('score', JSON.stringify(gameScore.value));
 
 function FinalDisplay (){
   console.log("test");
+  document.body.style.backgroundColor = "lavenderblush";
   document.getElementById("endScreen").style.display = "none";
   document.getElementById("ScoreKeeper").style.display = "none";
   document.getElementById("High-score-page").style.display = "block";
