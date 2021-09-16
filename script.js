@@ -66,7 +66,7 @@ function startQuiz() {
 //timer function
 function timer (){
   //case matters
-    timerCount=90;
+    timerCount=5;
     quizTimer = setInterval(function() { 
       timerCount--;
       console.log(timerCount);
@@ -77,7 +77,7 @@ function timer (){
       timerEl.innerHTML = "You've run out of time!";
     } if(timerCount === 0) {
       clearInterval(quizTimer);
-
+      
   }
  }, 1000)
   }
@@ -151,8 +151,7 @@ function finalScore(){
 }
 
 window.localStorage.setItem('user', JSON.stringify(currentName));
-
-window.localStorage.setItem('score', JSON.stringify(gameScore));
+window.localStorage.setItem('score', JSON.stringify(gameScore.value));
 
 function FinalDisplay (){
   console.log("test");
