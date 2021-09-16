@@ -135,6 +135,7 @@ function finalScore(){
   document.getElementById("endScreen").style.display = "block";
   document.getElementById("ScoreKeeper").style.display = "block";
   document.getElementById("hidden-question").style.display = "none";
+  document.getElementById("timer").style.display = "none";
 //updates the final score
   FinalScoreEl.innerHTML= "Your final score is" + gameScore;
 }
