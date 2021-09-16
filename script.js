@@ -26,7 +26,7 @@ startQuizBtn.onclick = startQuiz;
 //array that contains the questions, answers and correct answer index
 var questions = [
   {
-    question: "what does HTML stand for?",
+    question: "What does HTML stand for?",
     answers: ["Hypertext markup language", "Hypertype market language", "Hypertext markup linguistics", "Hypotext markup language"],
     correctAnswer: 0,
   },
@@ -60,6 +60,8 @@ function startQuiz() {
     document.getElementById("endScreen").style.display = "none";
     document.getElementById("ScoreKeeper").style.display = "none";
     document.getElementById("High-score-page").style.display = "none";
+    document.getElementById("goBack").style.display = "none";
+    document.getElementById("resetScore").style.display = "none";
     timer();
 }
 
@@ -141,6 +143,9 @@ function checkAnswer(clickedAnswer) {
 }
 
 function finalScore(){
+  document.body.style.backgroundColor = "lavenderblush";
+  document.getElementById("goBack").style.display = "block";
+  document.getElementById("resetScore").style.display = "block";
   //displays the final score, the form to submit name and hides questions
   document.getElementById("endScreen").style.display = "block";
   document.getElementById("ScoreKeeper").style.display = "block";
@@ -155,7 +160,7 @@ window.localStorage.setItem('score', JSON.stringify(gameScore.value));
 
 function FinalDisplay (){
   console.log("test");
-  document.body.style.backgroundColor = "lavenderblush";
+  // document.body.style.backgroundColor = "lavenderblush";
   document.getElementById("endScreen").style.display = "none";
   document.getElementById("ScoreKeeper").style.display = "none";
   document.getElementById("High-score-page").style.display = "block";
