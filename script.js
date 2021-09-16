@@ -142,7 +142,6 @@ function finalScore(){
 function FinalDisplay (){
   document.getElementById("endScreen").style.display = "none";
   document.getElementById("ScoreKeeper").style.display = "none";
-
+  ScoreKeeperEl= JSON.parse(window.localStorage.getItem('FinalScore'));
 }
 
- ScoreKeeperEl= JSON.parse(window.localStorage.getItem('FinalScore'));
