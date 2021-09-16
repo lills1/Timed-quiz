@@ -9,9 +9,16 @@ var HomepageEl =document.getElementsByTagName ("body");
 var startQuizBtn = document.getElementById("generate");
 var ScoreKeeperEl = document.getElementById("ScoreKeeper");
 var FinalScoreEl=document.getElementById("FinalScore");
+var HighScorePage = document.getElementById("High-score-page");
+document.getElementById("myBtn").onclick = function(e) {
+  e.preventDefault();
+var currentName=document.getElementById("fname").value;
+console.log(currentName)
+  FinalDisplay()};
 var gameScore=0;
 var quizTimer, timerCount;
 startQuizBtn.onclick = startQuiz;
+
 
 
 //array that contains the questions, answers and correct answer index
@@ -50,6 +57,7 @@ function startQuiz() {
     document.getElementById("timer").style.display = "block";
     document.getElementById("endScreen").style.display = "none";
     document.getElementById("ScoreKeeper").style.display = "none";
+    document.getElementById("High-score-page").style.display = "none";
     timer();
 }
 
@@ -137,12 +145,17 @@ function finalScore(){
   document.getElementById("hidden-question").style.display = "none";
   document.getElementById("timer").style.display = "none";
 //updates the final score
-  FinalScoreEl.innerHTML= "Your final score is" + gameScore;
+  FinalScoreEl.innerHTML= "Your final score is" + gameScore ;
 }
 
 function FinalDisplay (){
+  console.log("test");
   document.getElementById("endScreen").style.display = "none";
   document.getElementById("ScoreKeeper").style.display = "none";
-  ScoreKeeperEl= JSON.parse(window.localStorage.getItem('FinalScore'));
+  document.getElementById("High-score-page").style.display = "block";
+  HighScorePage= JSON.parse(window.localStorage.getItem('gameScore'));
+  HighScorePage= JSON.parse(window.localStorage.getItem('currentName'));
+  document.getElementById("High-score-page").innerHTML = gameScore;
+  document.getElementById("fname").innerHTML = currentName;
 }
 
