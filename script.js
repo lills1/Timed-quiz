@@ -161,6 +161,8 @@ window.localStorage.setItem('score', JSON.stringify(gameScore.value));
 function FinalDisplay (){
   console.log("test");
   // document.body.style.backgroundColor = "lavenderblush";
+  document.getElementById("goBack").style.display = "none";
+  document.getElementById("resetScore").style.display = "none";
   document.getElementById("endScreen").style.display = "none";
   document.getElementById("ScoreKeeper").style.display = "none";
   document.getElementById("High-score-page").style.display = "block";
