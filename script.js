@@ -115,13 +115,15 @@ function checkAnswer(clickedAnswer) {
   //setTimeout displays background for 1.1 seconds and resets background to white
   setTimeout(function(){ 
     currentQuestionIndex++;
-    if(true){
+    console.log("currentQuestionIndex:"+currentQuestionIndex+ " questions.length:"+questions.length);
+    if(currentQuestionIndex<questions.length){
       // figure out what the condition here is.
       console.log("running updateQuestion")
       updateQuestion();
     } else {
-      console.log("running finalScore")
+      console.log("running finalScore");
       finalScore();
+      clearInterval(quizTimer);
     }
     document.body.style.backgroundColor = "white";
   }, 1100);
