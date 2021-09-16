@@ -18,21 +18,21 @@ startQuizBtn.onclick = startQuiz;
 var questions = [
   {
     question: "what does HTML stand for?",
-    answers: ["Hypertext markup language", "Hypertype market language", "Hypertext markup linguistics"],
+    answers: ["Hypertext markup language", "Hypertype market language", "Hypertext markup linguistics", "Hypotext markup language"],
     correctAnswer: 0,
   },
   {
     question: "What is the purpose of a function in javascript?",
-    answers: ["it stores multiple values in a single variable", "it allows you to define a block of code to execute as many times as wanted", "They check specific conditions"],
+    answers: ["it stores multiple values in a single variable", "it allows you to define a block of code to execute as many times as wanted", "They check specific conditions", "it styles the html"],
     correctAnswer: 1,
   },
   {
     question: "When targetting a class in css, which of the following character is used:",
-    answers: ["#", "", "."],
+    answers: ["#", "!", ".", "?"],
     correctAnswer: 2,
   },
   {
-    question: "In Javascript, which of the following out of the array would be conisdered [2]: var animals =[ 'turtles', 'cats', 'owl', 'donkey']",
+    question: "In Javascript, which of the following out of the array would be conisdered [3]: var animals =[ 'turtles', 'cats', 'owl', 'donkey']",
     answers: ["turtles", "cats", "owl", "donkey"],
     correctAnswer: 3, 
   }
@@ -138,3 +138,11 @@ function finalScore(){
 //updates the final score
   FinalScoreEl.innerHTML= "Your final score is" + gameScore;
 }
+
+function FinalDisplay (){
+  document.getElementById("endScreen").style.display = "none";
+  document.getElementById("ScoreKeeper").style.display = "none";
+
+}
+
+ ScoreKeeperEl= JSON.parse(window.localStorage.getItem('FinalScore'));
