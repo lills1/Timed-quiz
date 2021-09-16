@@ -13,6 +13,8 @@ var currentName=document.getElementById("fname")
 console.log("currentname.value")
 var HighScorePage = document.getElementById("High-score-page");
 document.getElementById("myBtn").onclick = function(e) {
+  window.localStorage.setItem('user', JSON.stringify(currentName));
+  window.localStorage.setItem('score', JSON.stringify(gameScore));
   e.preventDefault();
 currentName=document.getElementById("fname").value;
 console.log(currentName)
@@ -143,6 +145,10 @@ function checkAnswer(clickedAnswer) {
 }
 
 function finalScore(){
+  console.log("currentName");
+  console.log(currentName);
+  console.log("gameScore");
+  console.log(gameScore);
   document.body.style.backgroundColor = "lavenderblush";
   document.getElementById("goBack").style.display = "block";
   document.getElementById("resetScore").style.display = "block";
@@ -154,9 +160,6 @@ function finalScore(){
 //updates the final score
   FinalScoreEl.innerHTML= " Your final score is " + gameScore ;
 }
-
-window.localStorage.setItem('user', JSON.stringify(currentName));
-window.localStorage.setItem('score', JSON.stringify(gameScore.value));
 
 function FinalDisplay (){
   console.log("test");
