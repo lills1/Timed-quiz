@@ -4,7 +4,7 @@
 <head>
     <title> Coding quiz</title>
 <link rel="stylesheet" href="style.css">
-<a href="./highscores.html">High Scores</a>
+<a href="./highscores.html"> View high Scores</a>
 </head>
 
 <body>
@@ -46,16 +46,22 @@
     </form>
 </div>
 <div id="ScoreKeeper">
-    <p> View Highscores</p>
+    <!-- <p> View Highscores</p> -->
 </div>
-<div class="hidden" id="High-score-page">
-    
+
+<div class="hidden" id="High-score-page"> 
+
 </div>
-<div class="left">
-<button class="hidden" id="goBack"><p>Go back</p></button>
+<div style="width: 477px; float: none;"> <div class="left" style="
+    float: right;
+    display: inline;
+">
+
+<button onclick="goBack();" class="hidden" id="goBack"><p>Go back</p></button>
 </div>
 <div class="right">
-<button class="hidden" id="resetScore"><p>Reset scores</p></button>
+<button onclick="clearLocal();"class="hidden" id="resetScore"><p>Reset scores</p></button>
+</div>
 </div>
 
     <script src="script.js"></script>
