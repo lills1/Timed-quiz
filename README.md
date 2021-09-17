@@ -4,12 +4,12 @@ Built With
 javascript
 and a little bit of html and css
 <h2>Access & installation</h2>
-This project can be accessed through the following deployed link : 
+This project can be accessed through the following deployed link : https://lills1.github.io/Timed-quiz/
 
-You can also clone the repo to your device through 
+You can also clone the repo to your device through https://github.com/lills1/Timed-quiz
 
 <h2>preview </h2>
-//screenshot
+<href="https://github.com/lills1/Timed-quiz/blob/main/_C__Users_Lilly_timed-quiz_Timed-quiz_index.html.png">
 
 <h2>Usage</h2>
 This coding quiz can be used to test your coding skills! (very basic knowledge required).
