@@ -12,13 +12,25 @@ var FinalScoreEl=document.getElementById("FinalScore");
 var currentName=document.getElementById("fname")
 console.log("currentname.value")
 var HighScorePage = document.getElementById("High-score-page");
-document.getElementById("myBtn").onclick = function(e) {
-  window.localStorage.setItem('user', JSON.stringify(currentName));
-  window.localStorage.setItem('score', JSON.stringify(gameScore));
+var highScoreList = JSON.parse(localStorage.getItem('highscores')) || [];
+
+// document.getElementById("myBtn").onclick = function(e) {
+//   window.localStorage.setItem('user', JSON.stringify(currentName));
+//   window.localStorage.setItem('score', JSON.stringify(gameScore));
+//   e.preventDefault();
+// currentName=document.getElementById("fname").value;
+// console.log(currentName)
+//   FinalDisplay()};
+
+document.getElementById('myBtn').onclick = function (e) {
+  var userObj = finalScore();
+  console.log('userObj', userObj);
+  window.localStorage.setItem('user', JSON.stringify(userObj));
   e.preventDefault();
-currentName=document.getElementById("fname").value;
-console.log(currentName)
-  FinalDisplay()};
+  currentName = document.getElementById('fname').value;
+  console.log(currentName);
+  FinalDisplay();
+};
 var gameScore=0;
 var quizTimer, timerCount;
 startQuizBtn.onclick = startQuiz;
@@ -144,22 +156,54 @@ function checkAnswer(clickedAnswer) {
 
 }
 
-function finalScore(){
-  console.log("currentName");
-  console.log(currentName);
-  console.log("gameScore");
+
+function finalScore() {
+  console.log('currentName');
+  console.log(currentName.value);
+  console.log('gameScore');
   console.log(gameScore);
-  document.body.style.backgroundColor = "lavenderblush";
-  document.getElementById("goBack").style.display = "block";
-  document.getElementById("resetScore").style.display = "block";
+  document.body.style.backgroundColor = 'lavenderblush';
+  document.getElementById('goBack').style.display = 'block';
+  document.getElementById('resetScore').style.display = 'block';
   //displays the final score, the form to submit name and hides questions
-  document.getElementById("endScreen").style.display = "block";
-  document.getElementById("ScoreKeeper").style.display = "block";
-  document.getElementById("hidden-question").style.display = "none";
-  document.getElementById("timer").style.display = "none";
-//updates the final score
-  FinalScoreEl.innerHTML= " Your final score is " + gameScore ;
+  document.getElementById('endScreen').style.display = 'block';
+  document.getElementById('ScoreKeeper').style.display = 'block';
+  document.getElementById('hidden-question').style.display = 'none';
+  document.getElementById('timer').style.display = 'none';
+  //updates the final score
+  FinalScoreEl.innerHTML = ' Your final score is ' + gameScore;
+  var user = {
+      name: currentName.value,
+      score: gameScore,
+  };
+  return user;
 }
+
+highScore = {
+  name: currentName.value,
+  score: gameScore
+}
+
+highScoreList.push(highscore);
+
+window.localStorage.setItem('highscores', JSON.stringify(highScoreList));
+
+// function finalScore(){
+//   console.log("currentName");
+//   console.log(currentName);
+//   console.log("gameScore");
+//   console.log(gameScore);
+//   document.body.style.backgroundColor = "lavenderblush";
+//   document.getElementById("goBack").style.display = "block";
+//   document.getElementById("resetScore").style.display = "block";
+//   //displays the final score, the form to submit name and hides questions
+//   document.getElementById("endScreen").style.display = "block";
+//   document.getElementById("ScoreKeeper").style.display = "block";
+//   document.getElementById("hidden-question").style.display = "none";
+//   document.getElementById("timer").style.display = "none";
+// //updates the final score
+//   FinalScoreEl.innerHTML= " Your final score is " + gameScore ;
+// }
 
 function FinalDisplay (){
   console.log("test");
@@ -173,6 +217,5 @@ function FinalDisplay (){
   HighScorePage= JSON.parse(window.localStorage.getItem('currentName'));
   document.getElementById("High-score-page").innerHTML = gameScore;
   document.getElementById("High-score-page").innerHTML = currentName;
-
 }
 
