@@ -39,6 +39,10 @@ document.getElementById('myBtn').onclick = function (e) {
   FinalDisplay();
 };
 
+function goBack() {
+  returnBack();
+}
+
 var gameScore=0;
 var quizTimer, timerCount;
 startQuizBtn.onclick = startQuiz;
@@ -101,6 +105,7 @@ function startQuiz() {
     timer();
 }
 
+
 //timer function
 function timer (){
   //case matters
@@ -115,7 +120,7 @@ function timer (){
       timerEl.innerHTML = "You've run out of time!";
     } if(timerCount === 0) {
       clearInterval(quizTimer);
-
+      finalScore();
   }
  }, 1000)
   }
@@ -230,6 +235,7 @@ highScore = {
 function FinalDisplay (){
   console.log("test");
   // document.body.style.backgroundColor = "lavenderblush";
+  // document.write("Final score: ", gameScore  +  "Your name: ", currentName );
   document.getElementById("goBack").style.display = "none";
   document.getElementById("resetScore").style.display = "none";
   document.getElementById("endScreen").style.display = "none";
@@ -237,10 +243,26 @@ function FinalDisplay (){
   document.getElementById("High-score-page").style.display = "block";
   HighScorePage= JSON.parse(window.localStorage.getItem('gameScore'));
   HighScorePage= JSON.parse(window.localStorage.getItem('currentName'));
-  document.getElementById("High-score-page").innerHTML = gameScore;
-  document.getElementById("High-score-page").innerHTML = currentName;
+  document.getElementById("High-score-page").innerHTML = gameScore + currentName; 
 }
 
-// now you just need to implement the thing you're 
-// saving into localstorage with the scores as an array, and push the new userObj onto it
+function returnBack() {
+  document.getElementById("homepage").style.display = "block";
+  document.getElementById("generate").style.display = "block"; 
+  document.getElementById("hidden-question").style.display = "none";
+  document.getElementById("timer").style.display = "none";
+  document.getElementById("endScreen").style.display = "none";
+  document.getElementById("ScoreKeeper").style.display = "none";
+  document.getElementById("High-score-page").style.display = "none";
+  document.getElementById("goBack").style.display = "none";
+  document.getElementById("resetScore").style.display = "none";
+  currentQuestionIndex=0;
+  updateQuestion();
+}
+function clearLocal(){
+  window.localStorage.clear();
+}
+
+
+
 
