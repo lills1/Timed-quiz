@@ -22,19 +22,41 @@ var highScoreList = JSON.parse(localStorage.getItem('highscores')) || [];
 // console.log(currentName)
 //   FinalDisplay()};
 
+
+// now you just need to implement the thing you're 
+// saving into localstorage with the scores as an array, and push the new userObj onto it
+
 document.getElementById('myBtn').onclick = function (e) {
   var userObj = finalScore();
   console.log('userObj', userObj);
+  highScoreList = JSON.parse(localStorage.getItem('highscores')) || [];
+  highScoreList.push(userObj);
+  localStorage.setItem('highscores', JSON.stringify(highScoreList));
   window.localStorage.setItem('user', JSON.stringify(userObj));
   e.preventDefault();
   currentName = document.getElementById('fname').value;
   console.log(currentName);
   FinalDisplay();
 };
+
 var gameScore=0;
 var quizTimer, timerCount;
 startQuizBtn.onclick = startQuiz;
 
+var userObj = JSON.parse(localStorage.getItem('userobj')) || [];
+if (localStorage.getItem('highscores') !== null) {
+    highScoreList = JSON.parse(localStorage.getItem('highscores'));
+  }
+  /*highScore = {
+    name: currentName.value,
+    score: gameScore
+  }*/
+  score = {
+    name: currentName.value,
+    score: gameScore
+  }
+  // highScoreList.push(score);
+  // localStorage.setItem('highscores', JSON.stringify(highScoreList));
 
 
 //array that contains the questions, answers and correct answer index
@@ -184,9 +206,9 @@ highScore = {
   score: gameScore
 }
 
-highScoreList.push(highscore);
+// highScoreList.push(highscore);
 
-window.localStorage.setItem('highscores', JSON.stringify(highScoreList));
+// window.localStorage.setItem('highscores', JSON.stringify(highScoreList));
 
 // function finalScore(){
 //   console.log("currentName");
@@ -218,4 +240,7 @@ function FinalDisplay (){
   document.getElementById("High-score-page").innerHTML = gameScore;
   document.getElementById("High-score-page").innerHTML = currentName;
 }
+
+// now you just need to implement the thing you're 
+// saving into localstorage with the scores as an array, and push the new userObj onto it
 
