@@ -14,18 +14,6 @@ console.log("currentname.value")
 var HighScorePage = document.getElementById("High-score-page");
 var highScoreList = JSON.parse(localStorage.getItem('highscores')) || [];
 
-// document.getElementById("myBtn").onclick = function(e) {
-//   window.localStorage.setItem('user', JSON.stringify(currentName));
-//   window.localStorage.setItem('score', JSON.stringify(gameScore));
-//   e.preventDefault();
-// currentName=document.getElementById("fname").value;
-// console.log(currentName)
-//   FinalDisplay()};
-
-
-// now you just need to implement the thing you're 
-// saving into localstorage with the scores as an array, and push the new userObj onto it
-
 document.getElementById('myBtn').onclick = function (e) {
   var userObj = finalScore();
   console.log('userObj', userObj);
@@ -51,18 +39,12 @@ var userObj = JSON.parse(localStorage.getItem('userobj')) || [];
 if (localStorage.getItem('highscores') !== null) {
     highScoreList = JSON.parse(localStorage.getItem('highscores'));
   }
-  /*highScore = {
-    name: currentName.value,
-    score: gameScore
-  }*/
+
   score = {
     name: currentName.value,
     score: gameScore
   }
-  // highScoreList.push(score);
-  // localStorage.setItem('highscores', JSON.stringify(highScoreList));
-
-
+  
 //array that contains the questions, answers and correct answer index
 var questions = [
   {
@@ -211,26 +193,6 @@ highScore = {
   score: gameScore
 }
 
-// highScoreList.push(highscore);
-
-// window.localStorage.setItem('highscores', JSON.stringify(highScoreList));
-
-// function finalScore(){
-//   console.log("currentName");
-//   console.log(currentName);
-//   console.log("gameScore");
-//   console.log(gameScore);
-//   document.body.style.backgroundColor = "lavenderblush";
-//   document.getElementById("goBack").style.display = "block";
-//   document.getElementById("resetScore").style.display = "block";
-//   //displays the final score, the form to submit name and hides questions
-//   document.getElementById("endScreen").style.display = "block";
-//   document.getElementById("ScoreKeeper").style.display = "block";
-//   document.getElementById("hidden-question").style.display = "none";
-//   document.getElementById("timer").style.display = "none";
-// //updates the final score
-//   FinalScoreEl.innerHTML= " Your final score is " + gameScore ;
-// }
 
 function FinalDisplay (){
   console.log("test");
